@@ -92,7 +92,6 @@ enum ColorConvertFormat {
     YCbCr420SP,
     YCbCr420P,
     YCrCb420P,
-    YCrCb420YT,
 };
 
 /* 64 bit flag variable, reserving bits as needed */
