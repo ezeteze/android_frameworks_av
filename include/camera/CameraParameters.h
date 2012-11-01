@@ -659,6 +659,13 @@ public:
     static const char KEY_SUPPORTED_REDEYE_REDUCTION[];
 #endif
 
+#ifdef QCOM_HARDWARE
+    static const char KEY_POWER_MODE[];
+    static const char KEY_SINGLE_ISP_OUTPUT_ENABLED[];
+    static const char NORMAL_POWER[];
+    static const char LOW_POWER[];
+#endif
+
 #ifdef SAMSUNG_CAMERA_HARDWARE
     static const char KEY_ANTI_SHAKE_MODE[];
     static const char KEY_METERING[];

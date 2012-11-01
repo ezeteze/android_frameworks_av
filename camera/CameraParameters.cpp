@@ -334,7 +334,13 @@ const char CameraParameters::KEY_MIN_SATURATION[] = "saturation-min";
 #else
 const char CameraParameters::KEY_MAX_SATURATION[] = "max-saturation";
 #endif
+#ifdef QCOM_HARDWARE
+const char CameraParameters::KEY_POWER_MODE[] = "power-mode";
+const char CameraParameters::NORMAL_POWER[] = "normal";
+const char CameraParameters::LOW_POWER[] = "low";
+const char CameraParameters::KEY_SINGLE_ISP_OUTPUT_ENABLED[] = "single-isp-output-enabled";
 
+#endif
 //Values for DENOISE
 const char CameraParameters::DENOISE_OFF[] = "denoise-off";
 const char CameraParameters::DENOISE_ON[] = "denoise-on";
