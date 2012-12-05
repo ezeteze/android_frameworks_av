@@ -461,9 +461,6 @@ private:
 
     static VideoEncoderCap* createDefaultH263VideoEncoderCap();
     static VideoEncoderCap* createDefaultM4vVideoEncoderCap();
-#ifdef QCOM_HARDWARE
-    static VideoEncoderCap* createDefaultH264VideoEncoderCap();
-#endif
     static AudioEncoderCap* createDefaultAmrNBEncoderCap();
 #ifdef QCOM_HARDWARE
     static AudioEncoderCap* createDefaultAacEncoderCap();
