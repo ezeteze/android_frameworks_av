@@ -100,6 +100,7 @@ const char CameraParameters::KEY_FOCUS_MODE[] = "focus-mode";
 const char CameraParameters::KEY_SUPPORTED_FOCUS_MODES[] = "focus-mode-values";
 const char CameraParameters::KEY_MAX_NUM_FOCUS_AREAS[] = "max-num-focus-areas";
 const char CameraParameters::KEY_FOCUS_AREAS[] = "focus-areas";
+
 const char CameraParameters::KEY_FOCAL_LENGTH[] = "focal-length";
 const char CameraParameters::KEY_HORIZONTAL_VIEW_ANGLE[] = "horizontal-view-angle";
 const char CameraParameters::KEY_VERTICAL_VIEW_ANGLE[] = "vertical-view-angle";
@@ -164,8 +165,15 @@ const char CameraParameters::KEY_VIDEO_STABILIZATION_SUPPORTED[] = "video-stabil
 const char CameraParameters::KEY_ZSL[] = "zsl";
 const char CameraParameters::KEY_SUPPORTED_ZSL_MODES[] = "zsl-values";
 const char CameraParameters::KEY_CAMERA_MODE[] = "camera-mode";
+#ifdef QCOM_7X27A_HARDWARE
+const char CameraParameters::KEY_EX_SUPPORTED_METERING_MODES[] = "semc-metering-mode-values";
+#endif
 #endif
 const char CameraParameters::KEY_AE_BRACKET_HDR[] = "ae-bracket-hdr";
+#if defined(CAMERA_POWERMODE) || defined(QCOM_7X27A_HARDWARE)
+const char CameraParameters::KEY_POWER_MODE[] = "power-mode";
+const char CameraParameters::KEY_POWER_MODE_SUPPORTED[] = "power-mode-supported";
+#endif
 /*only effective when KEY_AE_BRACKET_HDR set to ae_bracketing*/
 //const char CameraParameters::KEY_AE_BRACKET_SETTING_KEY[] = "ae-bracket-setting";
 
@@ -240,6 +248,9 @@ const char CameraParameters::SCENE_MODE_FLOWERS[] = "flowers";
 const char CameraParameters::SCENE_MODE_BARCODE[] = "barcode";
 #ifdef QCOM_HARDWARE
 const char CameraParameters::SCENE_MODE_AR[] = "AR";
+#ifdef QCOM_7X27A_HARDWARE
+const char CameraParameters::EX_SCENE_MODE_DOCUMENT[] = "document";
+#endif
 const char CameraParameters::SCENE_MODE_OFF[] = "off";
 
 // Values for auto scene detection settings.
@@ -289,6 +300,8 @@ const char CameraParameters::ISO_200[] = "ISO200";
 const char CameraParameters::ISO_400[] = "ISO400";
 const char CameraParameters::ISO_800[] = "ISO800";
 const char CameraParameters::ISO_1600[] = "ISO1600";
+const char CameraParameters::ISO_3200[] = "ISO3200";
+const char CameraParameters::ISO_6400[] = "ISO6400";
 
  //Values for Lens Shading
 const char CameraParameters::LENSSHADE_ENABLE[] = "enable";
@@ -299,6 +312,12 @@ const char CameraParameters::AUTO_EXPOSURE_FRAME_AVG[] = "frame-average";
 const char CameraParameters::AUTO_EXPOSURE_CENTER_WEIGHTED[] = "center-weighted";
 const char CameraParameters::AUTO_EXPOSURE_SPOT_METERING[] = "spot-metering";
 
+#ifdef QCOM_7X27A_HARDWARE
+const char CameraParameters::KEY_SEMC_METRY_MODE[] = "semc-metering-mode";
+const char CameraParameters::SEMC_METRY_CENTER[] = "center-weighted";
+const char CameraParameters::SEMC_METRY_FRAME[] = "frame-adverage";
+const char CameraParameters::SEMC_METRY_SPOT[] = "spot";
+#endif
 const char CameraParameters::KEY_GPS_LATITUDE_REF[] = "gps-latitude-ref";
 const char CameraParameters::KEY_GPS_LONGITUDE_REF[] = "gps-longitude-ref";
 const char CameraParameters::KEY_GPS_ALTITUDE_REF[] = "gps-altitude-ref";
@@ -335,13 +354,6 @@ const char CameraParameters::KEY_MAX_SATURATION[] = "saturation-max";
 const char CameraParameters::KEY_MIN_SATURATION[] = "saturation-min";
 #else
 const char CameraParameters::KEY_MAX_SATURATION[] = "max-saturation";
-#endif
-#ifdef QCOM_HARDWARE
-const char CameraParameters::KEY_POWER_MODE[] = "power-mode";
-const char CameraParameters::NORMAL_POWER[] = "normal";
-const char CameraParameters::LOW_POWER[] = "low";
-const char CameraParameters::KEY_SINGLE_ISP_OUTPUT_ENABLED[] = "single-isp-output-enabled";
-
 #endif
 //Values for DENOISE
 const char CameraParameters::DENOISE_OFF[] = "denoise-off";
@@ -381,6 +393,11 @@ const char CameraParameters::ZSL_ON[] = "on";
 const char CameraParameters::AE_BRACKET_HDR_OFF[] = "Off";
 const char CameraParameters::AE_BRACKET_HDR[] = "HDR";
 const char CameraParameters::AE_BRACKET[] = "AE-Bracket";
+
+#if defined(CAMERA_POWERMODE) || defined(QCOM_7X27A_HARDWARE)
+const char CameraParameters::LOW_POWER[] = "Low_Power";
+const char CameraParameters::NORMAL_POWER[] = "Normal_Power";
+#endif
 
 static const char* portrait = "portrait";
 static const char* landscape = "landscape";
@@ -801,6 +818,12 @@ void CameraParameters::getMeteringAreaCenter(int *x, int *y) const
     }
 }
 
+#ifdef QCOM_7X27A_HARDWARE
+void CameraParameters::getFocusAreaCenter(int *x, int *y) const
+{
+    // dummy
+}
+#endif
 void CameraParameters::getTouchIndexAf(int *x, int *y) const
 {
     *x = -1;

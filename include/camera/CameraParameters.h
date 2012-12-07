@@ -580,6 +580,9 @@ public:
     // Example value: "true" or "false". Read only.
     static const char KEY_VIDEO_SNAPSHOT_SUPPORTED[];
     static const char KEY_FULL_VIDEO_SNAP_SUPPORTED[];
+#if defined(CAMERA_POWERMODE) || defined(QCOM_7X27A_HARDWARE)
+    static const char KEY_POWER_MODE_SUPPORTED[];
+#endif
 
 #if defined(QCOM_HARDWARE) || defined(EXYNOS4X12_ENHANCEMENTS) || defined(HAVE_ISO)
     static const char KEY_SUPPORTED_ISO_MODES[];
@@ -617,6 +620,10 @@ public:
 #ifdef QCOM_HARDWARE
     static const char KEY_MEMORY_COLOR_ENHANCEMENT[];
     static const char KEY_SUPPORTED_MEM_COLOR_ENHANCE_MODES[];
+
+#if defined(CAMERA_POWERMODE) || defined(QCOM_7X27A_HARDWARE)
+    static const char KEY_POWER_MODE[];
+#endif
 
     static const char KEY_ZSL[];
     static const char KEY_SUPPORTED_ZSL_MODES[];
@@ -658,13 +665,6 @@ public:
     //Redeye Reduction
     static const char KEY_REDEYE_REDUCTION[];
     static const char KEY_SUPPORTED_REDEYE_REDUCTION[];
-#endif
-
-#ifdef QCOM_HARDWARE
-    static const char KEY_POWER_MODE[];
-    static const char KEY_SINGLE_ISP_OUTPUT_ENABLED[];
-    static const char NORMAL_POWER[];
-    static const char LOW_POWER[];
 #endif
 
 #ifdef SAMSUNG_CAMERA_HARDWARE
@@ -746,6 +746,9 @@ public:
     static const char SCENE_MODE_BACKLIGHT[];
     static const char SCENE_MODE_FLOWERS[];
     static const char SCENE_MODE_AR[];
+#ifdef QCOM_7X27A_HARDWARE
+    static const char EX_SCENE_MODE_DOCUMENT[];
+#endif
     static const char SCENE_MODE_OFF[];
 #endif
     // Applications are looking for a barcode. Camera driver will be optimized
@@ -850,6 +853,8 @@ public:
     static const char ISO_400[];
     static const char ISO_800[];
     static const char ISO_1600[];
+    static const char ISO_3200[];
+    static const char ISO_6400[];
     // Values for Lens Shading
     static const char LENSSHADE_ENABLE[] ;
     static const char LENSSHADE_DISABLE[] ;
@@ -906,6 +911,10 @@ public:
     static const char AE_BRACKET_HDR[];
     static const char AE_BRACKET[];
 
+#if defined(CAMERA_POWERMODE) || defined(QCOM_7X27A_HARDWARE)
+    static const char LOW_POWER[];
+    static const char NORMAL_POWER[];
+#endif
     // Values for HFR settings.
     static const char VIDEO_HFR_OFF[];
     static const char VIDEO_HFR_2X[];
@@ -918,6 +927,14 @@ public:
     // Values for HDR settings.
     static const char HDR_ENABLE[];
     static const char HDR_DISABLE[];
+
+#ifdef QCOM_7X27A_HARDWARE
+    static const char KEY_EX_SUPPORTED_METERING_MODES[];
+    static const char KEY_SEMC_METRY_MODE[];
+    static const char SEMC_METRY_CENTER[];
+    static const char SEMC_METRY_FRAME[];
+    static const char SEMC_METRY_SPOT[];
+#endif
 
    // Values for Redeye Reduction settings.
    // static const char REDEYE_REDUCTION_ENABLE[];
@@ -936,6 +953,9 @@ public:
     void setPreviewFpsRange(int minFPS,int maxFPS);
     void setPostviewSize(int x, int y);
     void getSupportedHfrSizes(Vector<Size> &sizes) const;
+#ifdef QCOM_7X27A_HARDWARE
+    void getFocusAreaCenter(int *x, int *y) const;
+#endif
 #endif
 
 private:
