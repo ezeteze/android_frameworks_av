@@ -314,6 +314,7 @@ const char CameraParameters::AUTO_EXPOSURE_SPOT_METERING[] = "spot-metering";
 
 #ifdef QCOM_7X27A_HARDWARE
 const char CameraParameters::KEY_SEMC_METRY_MODE[] = "semc-metering-mode";
+const char CameraParameters::KEY_SINGLE_ISP_OUTPUT_ENABLED[] = "single-isp-output-enabled";
 const char CameraParameters::SEMC_METRY_CENTER[] = "center-weighted";
 const char CameraParameters::SEMC_METRY_FRAME[] = "frame-adverage";
 const char CameraParameters::SEMC_METRY_SPOT[] = "spot";

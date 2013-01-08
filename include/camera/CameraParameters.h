@@ -934,6 +934,7 @@ public:
     static const char SEMC_METRY_CENTER[];
     static const char SEMC_METRY_FRAME[];
     static const char SEMC_METRY_SPOT[];
+	static const char KEY_SINGLE_ISP_OUTPUT_ENABLED[];
 #endif
 
    // Values for Redeye Reduction settings.
