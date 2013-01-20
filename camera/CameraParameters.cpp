@@ -29,6 +29,18 @@ const char CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES[] = "preview-size-value
 #ifdef QCOM_HARDWARE
 const char CameraParameters::KEY_SUPPORTED_HFR_SIZES[] = "hfr-size-values";
 #endif
+#ifdef QCOM_HARDWARE
+const char CameraParameters::KEY_EXHDR_SAVING_MODE[] = "exhdr-saving-mode";
+const char CameraParameters::EXHDR_SAVING_MODE_ON[] = "exhdr-saving-mode-on";
+const char CameraParameters::EXHDR_SAVING_MODE_OFF[] = "exhdr-saving-mode-off";
+const char CameraParameters::KEY_EXHDR[] = "exhdr";
+const char CameraParameters::EXHDR_ON[] = "exhdr-on";
+const char CameraParameters::EXHDR_OFF[] = "exhdr-off";
+const char CameraParameters::KEY_SUPPORTED_EXHDR[] = "exhdr-values";
+const char CameraParameters::KEY_EXHDR_RUINING[] = "exhdr-ruining";
+const char CameraParameters::EXHDR_RUINING_ON[] = "exhdr-ruining-on";
+const char CameraParameters::EXHDR_RUINING_OFF[] = "exhdr-ruining-off";
+#endif
 const char CameraParameters::KEY_PREVIEW_FORMAT[] = "preview-format";
 const char CameraParameters::KEY_SUPPORTED_PREVIEW_FORMATS[] = "preview-format-values";
 const char CameraParameters::KEY_PREVIEW_FRAME_RATE[] = "preview-frame-rate";
@@ -165,12 +177,9 @@ const char CameraParameters::KEY_VIDEO_STABILIZATION_SUPPORTED[] = "video-stabil
 const char CameraParameters::KEY_ZSL[] = "zsl";
 const char CameraParameters::KEY_SUPPORTED_ZSL_MODES[] = "zsl-values";
 const char CameraParameters::KEY_CAMERA_MODE[] = "camera-mode";
-#ifdef QCOM_7X27A_HARDWARE
-const char CameraParameters::KEY_EX_SUPPORTED_METERING_MODES[] = "semc-metering-mode-values";
-#endif
 #endif
 const char CameraParameters::KEY_AE_BRACKET_HDR[] = "ae-bracket-hdr";
-#if defined(CAMERA_POWERMODE) || defined(QCOM_7X27A_HARDWARE)
+#ifdef QCOM_HARDWARE
 const char CameraParameters::KEY_POWER_MODE[] = "power-mode";
 const char CameraParameters::KEY_POWER_MODE_SUPPORTED[] = "power-mode-supported";
 #endif
@@ -248,9 +257,7 @@ const char CameraParameters::SCENE_MODE_FLOWERS[] = "flowers";
 const char CameraParameters::SCENE_MODE_BARCODE[] = "barcode";
 #ifdef QCOM_HARDWARE
 const char CameraParameters::SCENE_MODE_AR[] = "AR";
-#ifdef QCOM_7X27A_HARDWARE
 const char CameraParameters::EX_SCENE_MODE_DOCUMENT[] = "document";
-#endif
 const char CameraParameters::SCENE_MODE_OFF[] = "off";
 
 // Values for auto scene detection settings.
@@ -312,12 +319,8 @@ const char CameraParameters::AUTO_EXPOSURE_FRAME_AVG[] = "frame-average";
 const char CameraParameters::AUTO_EXPOSURE_CENTER_WEIGHTED[] = "center-weighted";
 const char CameraParameters::AUTO_EXPOSURE_SPOT_METERING[] = "spot-metering";
 
-#ifdef QCOM_7X27A_HARDWARE
-const char CameraParameters::KEY_SEMC_METRY_MODE[] = "semc-metering-mode";
+#ifdef QCOM_HARDWARE
 const char CameraParameters::KEY_SINGLE_ISP_OUTPUT_ENABLED[] = "single-isp-output-enabled";
-const char CameraParameters::SEMC_METRY_CENTER[] = "center-weighted";
-const char CameraParameters::SEMC_METRY_FRAME[] = "frame-adverage";
-const char CameraParameters::SEMC_METRY_SPOT[] = "spot";
 #endif
 const char CameraParameters::KEY_GPS_LATITUDE_REF[] = "gps-latitude-ref";
 const char CameraParameters::KEY_GPS_LONGITUDE_REF[] = "gps-longitude-ref";
@@ -395,7 +398,7 @@ const char CameraParameters::AE_BRACKET_HDR_OFF[] = "Off";
 const char CameraParameters::AE_BRACKET_HDR[] = "HDR";
 const char CameraParameters::AE_BRACKET[] = "AE-Bracket";
 
-#if defined(CAMERA_POWERMODE) || defined(QCOM_7X27A_HARDWARE)
+#ifdef QCOM_HARDWARE
 const char CameraParameters::LOW_POWER[] = "Low_Power";
 const char CameraParameters::NORMAL_POWER[] = "Normal_Power";
 #endif
@@ -819,7 +822,7 @@ void CameraParameters::getMeteringAreaCenter(int *x, int *y) const
     }
 }
 
-#ifdef QCOM_7X27A_HARDWARE
+#ifdef QCOM_HARDWARE
 void CameraParameters::getFocusAreaCenter(int *x, int *y) const
 {
     // dummy

@@ -143,6 +143,19 @@ public:
     // Example value: "800x480,432x320". Read only.
     static const char KEY_SUPPORTED_HFR_SIZES[];
 #endif
+
+#ifdef QCOM_HARDWARE
+    static const char KEY_EXHDR_SAVING_MODE[];
+    static const char EXHDR_SAVING_MODE_ON[];
+    static const char EXHDR_SAVING_MODE_OFF[];
+    static const char KEY_EXHDR[];
+    static const char EXHDR_ON[];
+    static const char EXHDR_OFF[];
+    static const char KEY_SUPPORTED_EXHDR[];
+    static const char KEY_EXHDR_RUINING[];
+    static const char EXHDR_RUINING_ON[];
+    static const char EXHDR_RUINING_OFF[];
+#endif
     // The current minimum and maximum preview fps. This controls the rate of
     // preview frames received (CAMERA_MSG_PREVIEW_FRAME). The minimum and
     // maximum fps must be one of the elements from
@@ -580,7 +593,7 @@ public:
     // Example value: "true" or "false". Read only.
     static const char KEY_VIDEO_SNAPSHOT_SUPPORTED[];
     static const char KEY_FULL_VIDEO_SNAP_SUPPORTED[];
-#if defined(CAMERA_POWERMODE) || defined(QCOM_7X27A_HARDWARE)
+#ifdef QCOM_HARDWARE
     static const char KEY_POWER_MODE_SUPPORTED[];
 #endif
 
@@ -621,7 +634,7 @@ public:
     static const char KEY_MEMORY_COLOR_ENHANCEMENT[];
     static const char KEY_SUPPORTED_MEM_COLOR_ENHANCE_MODES[];
 
-#if defined(CAMERA_POWERMODE) || defined(QCOM_7X27A_HARDWARE)
+#ifdef QCOM_HARDWARE
     static const char KEY_POWER_MODE[];
 #endif
 
@@ -746,9 +759,7 @@ public:
     static const char SCENE_MODE_BACKLIGHT[];
     static const char SCENE_MODE_FLOWERS[];
     static const char SCENE_MODE_AR[];
-#ifdef QCOM_7X27A_HARDWARE
     static const char EX_SCENE_MODE_DOCUMENT[];
-#endif
     static const char SCENE_MODE_OFF[];
 #endif
     // Applications are looking for a barcode. Camera driver will be optimized
@@ -911,7 +922,7 @@ public:
     static const char AE_BRACKET_HDR[];
     static const char AE_BRACKET[];
 
-#if defined(CAMERA_POWERMODE) || defined(QCOM_7X27A_HARDWARE)
+#ifdef QCOM_HARDWARE
     static const char LOW_POWER[];
     static const char NORMAL_POWER[];
 #endif
@@ -928,12 +939,7 @@ public:
     static const char HDR_ENABLE[];
     static const char HDR_DISABLE[];
 
-#ifdef QCOM_7X27A_HARDWARE
-    static const char KEY_EX_SUPPORTED_METERING_MODES[];
-    static const char KEY_SEMC_METRY_MODE[];
-    static const char SEMC_METRY_CENTER[];
-    static const char SEMC_METRY_FRAME[];
-    static const char SEMC_METRY_SPOT[];
+#ifdef QCOM_HARDWARE
 	static const char KEY_SINGLE_ISP_OUTPUT_ENABLED[];
 #endif
 
@@ -954,7 +960,7 @@ public:
     void setPreviewFpsRange(int minFPS,int maxFPS);
     void setPostviewSize(int x, int y);
     void getSupportedHfrSizes(Vector<Size> &sizes) const;
-#ifdef QCOM_7X27A_HARDWARE
+#ifdef QCOM_HARDWARE
     void getFocusAreaCenter(int *x, int *y) const;
 #endif
 #endif
