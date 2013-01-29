@@ -401,6 +401,9 @@ const char CameraParameters::AE_BRACKET[] = "AE-Bracket";
 #ifdef QCOM_HARDWARE
 const char CameraParameters::LOW_POWER[] = "Low_Power";
 const char CameraParameters::NORMAL_POWER[] = "Normal_Power";
+const char CameraParameters::KEY_GAMMA[] = "gamma";
+const char CameraParameters::KEY_CONVERSION[] = "conversion";
+const char CameraParameters::KEY_MATRIX[] = "matrix";
 #endif
 
 static const char* portrait = "portrait";

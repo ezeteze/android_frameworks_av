@@ -941,6 +941,9 @@ public:
 
 #ifdef QCOM_HARDWARE
 	static const char KEY_SINGLE_ISP_OUTPUT_ENABLED[];
+    static const char KEY_GAMMA[];
+    static const char KEY_CONVERSION[];
+    static const char KEY_MATRIX[];
 #endif
 
    // Values for Redeye Reduction settings.
