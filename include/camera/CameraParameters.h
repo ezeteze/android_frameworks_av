@@ -155,6 +155,8 @@ public:
     static const char KEY_EXHDR_RUINING[];
     static const char EXHDR_RUINING_ON[];
     static const char EXHDR_RUINING_OFF[];
+    static const char KEY_SHUTTER_SOUND_SELECT[];
+    static const char KEY_SHUTTER_SOUND[];
 #endif
     // The current minimum and maximum preview fps. This controls the rate of
     // preview frames received (CAMERA_MSG_PREVIEW_FRAME). The minimum and

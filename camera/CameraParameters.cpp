@@ -40,6 +40,8 @@ const char CameraParameters::KEY_SUPPORTED_EXHDR[] = "exhdr-values";
 const char CameraParameters::KEY_EXHDR_RUINING[] = "exhdr-ruining";
 const char CameraParameters::EXHDR_RUINING_ON[] = "exhdr-ruining-on";
 const char CameraParameters::EXHDR_RUINING_OFF[] = "exhdr-ruining-off";
+const char CameraParameters::KEY_SHUTTER_SOUND_SELECT[] = "shutter-sound-select";
+const char CameraParameters::KEY_SHUTTER_SOUND[] ="shutter-sound";
 #endif
 const char CameraParameters::KEY_PREVIEW_FORMAT[] = "preview-format";
 const char CameraParameters::KEY_SUPPORTED_PREVIEW_FORMATS[] = "preview-format-values";
