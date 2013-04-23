@@ -194,11 +194,13 @@ public:
     static const char KEY_SUPPORTED_PREVIEW_FRAME_RATE_MODES[];
     static const char KEY_PREVIEW_FRAME_RATE_AUTO_MODE[];
     static const char KEY_PREVIEW_FRAME_RATE_FIXED_MODE[];
+    static const char KEY_TAKING_PICTURE_ZOOM[];
     static const char KEY_CAPTURE_MODE[];
     static const char KEY_SUPPORTED_CAPTURE_MODES[];
     static const char KEY_PICTURE_COUNT[];
     static const char KEY_MAX_BURST_PICTURE_COUNT[];
     static const char KEY_SUPPORTED_CONTINUOUS_AF[];
+    static const char KEY_PANORAMA_MODE[];
     static const char KEY_SUPPORTED_CAF[];
     static const char CAPTURE_MODE_NORMAL[];
     static const char CAPTURE_MODE_BURST[];
@@ -206,6 +208,8 @@ public:
     static const char CAPTURE_MODE_HDR[];
     static const char CAPTURE_MODE_HJR[];
     static const char CAPTURE_MODE_PANORAMA[];
+    static const char PANORAMA_MODE_NOT_INPROGRESS[];
+    static const char PANORAMA_MODE_INPROGRESS[];
 #endif
     // The dimensions for captured pictures in pixels (width x height).
     // Example value: "1024x768". Read/write.
